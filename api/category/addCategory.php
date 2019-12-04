@@ -6,12 +6,9 @@
     error_reporting(0);	
     
     $data = json_decode(file_get_contents("php://input"), true)['data'];
-    $name = $data['name'];
-    $description = $data['description'];
-    $createdBy = $data['createdBy'];
-    $createdDate = $data['createdDate'];
+    $categoryName = $data['categoryName'];
 
-    $sql = "INSERT INTO category (name, description, createdBy) VALUES ('$name', '$description', '$createdBy')";
+    $sql = "INSERT INTO category (categoryName) VALUES ('$categoryName')";
     	
 	if (mysqli_query($conn, $sql)) {
         $success = new Success;

@@ -5,13 +5,10 @@
     error_reporting(0);	
     
     $data = json_decode(file_get_contents("php://input"), true)['data'];
-    $name = $data['name'];
-    $description = $data['description'];
-    $categoryId = $data['categoryId'];
-    $createdBy = $data['createdBy'];
-    $createdDate = $data['createdDate'];
+    $subCategoryName = $data['subCategoryName'];
+    $category = $data['category'];
 
-    $sql = "INSERT INTO subcategory (name, description, categoryId, createdBy, createdDate) VALUES ('$name', '$description', '$categoryId', '$createdBy', '$createdDate')";
+    $sql = "INSERT INTO subcategory (subCategoryName, category) VALUES ('$subCategoryName', '$category')";
     	
 	if (mysqli_query($conn, $sql)) {
         $success = new Success;

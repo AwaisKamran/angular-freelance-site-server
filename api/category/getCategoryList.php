@@ -14,8 +14,8 @@
         while ($row = mysqli_fetch_assoc($result)) {
             $category = new Category;
             $category->id = $row['id'];
-            $category->name = $row['name'];
-		    $category->description = $row['description'];
+            $category->categoryName = $row['categoryName'];
+		    $category->createdDate = $row['createdDate'];
             array_push($array_category, $category);
         }
 

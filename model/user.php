@@ -4,10 +4,13 @@
 		public $name = null;
 		public $email = null;
 		public $password = null;
+		public $telephone = null;
+		public $bankName = null;
+		public $bankAccountNumber = null;
+		public $travelRadius = null;
 		public $country = null;
-		public $active = null;
+		public $city = null;
 		public $type = null;
-		public $level = null;
-		public $limitOfReservation = null;
+		public $active = null;
 	}
 ?>

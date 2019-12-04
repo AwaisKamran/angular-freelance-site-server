@@ -6,10 +6,10 @@
     error_reporting(0);	
     
     $data = json_decode(file_get_contents("php://input"), true)['data'];
-    $newValue = $data['value'];
+    $active = $data['value'];
     $userId = $data['id'];
 
-    $sql = "Update user set active='$newValue' where id='$userId'";
+    $sql = "Update user set active='$active' where id='$userId'";
     	
 	if (mysqli_query($conn, $sql)) {
         $success = new Success;

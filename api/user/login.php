@@ -20,6 +20,7 @@
             $user->name = $row['username'];
             $user->email = $row['email'];
             $user->password = $row['password'];
+            $user->position = $row['position'];
             $user->telephone = $row['telephone'];
             $user->travelRadius = $row['travelRadius'];
             $user->country = $row['country'];

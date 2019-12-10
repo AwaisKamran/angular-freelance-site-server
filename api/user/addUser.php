@@ -9,14 +9,15 @@
     $name = $data['name'];
     $email = $data['email'];
     $password = $data['password'];
+    $position = $data['position'];
     $telephone = $data['telephone'];
-    $telephone = $data['country'];
-    $telephone = $data['city'];
+    $country = $data['country'];
+    $city = $data['city'];
     $travelRadius = $data['travelRadius'];
     $active = $data['active'];
     $type = $data['type'];
 
-    $sql = "INSERT INTO user (username, email, password, telephone, travelRadius, active, type) VALUES ('$name', '$email', '$password', '$telephone', '$travelRadius', '$active', '$type')";
+    $sql = "INSERT INTO user (username, email, password, position, telephone, country, city, travelRadius, active, type) VALUES ('$name', '$email', '$password', '$position' ,'$telephone', '$country', '$city', '$travelRadius', '$active', '$type')";
     	
 	if (mysqli_query($conn, $sql)) {
         $success = new Success;

@@ -4,9 +4,9 @@
 	$username = "root";
 	$password = "";
 
-	/*$servername = "localhost";
-	$username = "awais";
-	$password = "destiny88";*/
+	// $servername = "localhost";
+	// $username = "awais";
+	// $password = "destiny88";
 
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password);

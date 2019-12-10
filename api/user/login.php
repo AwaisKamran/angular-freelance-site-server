@@ -17,7 +17,7 @@
         while ($row = mysqli_fetch_assoc($result)) {
             $user = new User;
             $user->id = $row['id'];
-            $user->name = $row['name'];
+            $user->name = $row['username'];
             $user->email = $row['email'];
             $user->password = $row['password'];
             $user->telephone = $row['telephone'];
@@ -26,6 +26,10 @@
             $user->city = $row['city'];
             $user->type = $row['type'];
             $user->active = $row['active'];
+            $user->aboutMe = $row['aboutMe'];
+            $user->bankName = $row['bankName'];
+            $user->rating = $row['rating'];
+            $user->bankAccountNumber = $row['bankAccountNumber'];
         }
 
         $success = new Success;

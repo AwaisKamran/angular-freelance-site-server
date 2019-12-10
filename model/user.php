@@ -8,9 +8,11 @@
 		public $bankName = null;
 		public $bankAccountNumber = null;
 		public $travelRadius = null;
+		public $aboutMe = null;
 		public $country = null;
 		public $city = null;
 		public $type = null;
+		public $rating = null;
 		public $active = null;
 	}
 ?>

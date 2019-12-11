@@ -4,6 +4,8 @@
     include('../../model/error.php');
     include('../../model/success.php');
     include('../../model/Order.php');
+    include('../../model/Service.php');
+    include('../../model/User.php');
     error_reporting(0);	
     
     $sql = 'select 
@@ -12,7 +14,17 @@
         orders.hoursRequired,
         orders.budget,
         orders.orderInstructions,
-        orders.status
+        orders.status,
+        orders.orderCreatedBy as userId,
+
+        service.title,
+        service.description,
+        service.hourlyCost,
+        service.minimumHours,
+
+
+        (select username from user where id = orders.orderCreatedBy) as userName
+        
         from orders inner join service
         on orders.serviceId = service.id
         where service.userId ='. $_GET['userId'];
@@ -29,6 +41,19 @@
             $order->orderInstructions = $row['orderInstructions'];
             $order->status = $row['status'];
             $order->orderCreated = $row['orderCreated'];
+
+            $service = new Service;
+            $service->title = $row['title'];
+            $service->description = $row['description'];
+            $service->hourlyCost = $row['hourlyCost'];
+            $service->minimumHours = $row['minimumHours'];
+
+            $user = new User;
+            $user->id = $row['userId'];
+            $user->username = $row['userName'];
+
+            $order->service = $service;
+            $order->user = $user ;
             array_push($array_order, $order);
         }
 

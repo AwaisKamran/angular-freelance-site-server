@@ -7,12 +7,13 @@
     
     $data = json_decode(file_get_contents("php://input"), true)['data'];
     $serviceId = $data['serviceId'];
-    $hourRequired = $data['hourRequired'];
+    $hourRequired = $data['hoursRequired'];
     $budget = $data['budget'];
     $orderInstructions = $data['orderInstructions'];
     $status = $data['status'];
+    $orderCreatedBy = $data['orderCreatedBy'];
 
-    $sql = "INSERT INTO orders (serviceId, hourRequired, budget, orderInstructions, status) VALUES ('$serviceId', '$hourRequired', '$budget', '$orderInstructions', '$status'); ";
+    $sql = "INSERT INTO orders (serviceId, hoursRequired, budget, orderInstructions, orderCreatedBy, status) VALUES ('$serviceId', '$hourRequired', '$budget', '$orderInstructions', '$orderCreatedBy' ,'$status'); ";
 
 	if (mysqli_query($conn, $sql)) {
         $success = new Success;

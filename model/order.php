@@ -7,5 +7,7 @@
 		public $orderInstructions = null;
 		public $status = null;
 		public $orderCreated = null;
+		public $service = null;
+		public $user = null;
 	}
 ?>

@@ -28,9 +28,7 @@
         
         from orders inner join service
         on orders.serviceId = service.id
-        where service.userId ='. $_GET['userId'];
-
-    $array_order = array();
+        where service.userId ='. $_GET['userId'] .' && orders.id='. $_GET['orderId'];
 
 	if ($result = mysqli_query($conn, $sql)) {
         while ($row = mysqli_fetch_assoc($result)) {
@@ -55,12 +53,11 @@
 
             $order->service = $service;
             $order->user = $user ;
-            array_push($array_order, $order);
         }
 
         $success = new Success;
         $success->success = true;
-        $success->data = $array_order;
+        $success->data = $order;
         echo json_encode($success);
 	} 
 	else {

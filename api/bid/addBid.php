@@ -8,10 +8,11 @@
     $data = json_decode(file_get_contents("php://input"), true)['data'];
     $orderId = $data['orderId'];
     $timeRequired = $data['timeRequired'];
+    $bidDescription = $data['bidDescription'];
     $proposedBudget = $data['proposedBudget'];
     $proposedBy = $data['proposedBy'];
 
-    $sql = "INSERT INTO bid (orderId, timeRequired, proposedBudget, proposedBy) VALUES ('$orderId', '$timeRequired', '$proposedBudget', '$proposedBy')";
+    $sql = "INSERT INTO bids (orderId, timeRequired, proposedBudget, proposedBy, bidDescription) VALUES ('$orderId', '$timeRequired', '$proposedBudget', '$proposedBy', '$bidDescription')";
     	
 	if (mysqli_query($conn, $sql)) {
         $success = new Success;

@@ -8,7 +8,7 @@
     $data = json_decode(file_get_contents("php://input"), true)['data'];
     $bidId = $data['bidId'];
 
-    $sql = "Update bid set accepted=1 where id='$bidId'";
+    $sql = "Update bids set accepted=1 where id='$bidId'";
     	
 	if (mysqli_query($conn, $sql)) {
         $success = new Success;

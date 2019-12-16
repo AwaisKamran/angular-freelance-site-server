@@ -7,12 +7,13 @@
     
     $data = json_decode(file_get_contents("php://input"), true)['data'];
     $orderId = $data['orderId'];
+    $serviceId = $data['serviceId'];
     $timeRequired = $data['timeRequired'];
     $bidDescription = $data['bidDescription'];
     $proposedBudget = $data['proposedBudget'];
     $proposedBy = $data['proposedBy'];
 
-    $sql = "INSERT INTO bids (orderId, timeRequired, proposedBudget, proposedBy, bidDescription) VALUES ('$orderId', '$timeRequired', '$proposedBudget', '$proposedBy', '$bidDescription')";
+    $sql = "INSERT INTO bids (orderId, serviceId, timeRequired, proposedBudget, proposedBy, bidDescription) VALUES ('$orderId', '$serviceId', '$timeRequired', '$proposedBudget', '$proposedBy', '$bidDescription')";
     	
 	if (mysqli_query($conn, $sql)) {
         $success = new Success;

@@ -9,6 +9,8 @@
     $sql = 'select 
     id,
     orderId,
+    serviceId,
+    (select title from service where id = bids.serviceId) as serviceName,
     bidDescription,
     timeRequired,
     proposedBudget,
@@ -24,6 +26,8 @@
             $bid = new Bid;
             $bid->id = $row['id'];
             $bid->orderId = $row['orderId'];
+            $bid->serviceName = $row['serviceName'];
+            $bid->serviceId = $row['serviceId'];
             $bid->bidDescription = $row['bidDescription'];
             $bid->timeRequired = $row['timeRequired'];
             $bid->proposedBudget = $row['proposedBudget'];

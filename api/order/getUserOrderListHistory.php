@@ -16,11 +16,11 @@
         orderCreated,
         orderCreatedBy,
         categoryId,
+        (select userId from service where id = orders.serviceId) as userId,
         (select username from user where user.id = orders.orderCreatedBy) as userName,
         (select categoryName from category where category.id = orders.categoryId) as categoryName,
         (select count(*) from bids where orderId = orders.id) as bidCount
-        from orders where serviceId IS NULL && status = "-1"
-    ';
+        from orders where orderCreatedBy = '. $_GET['userId'];
     $array_order = array();
 
 	if ($result = mysqli_query($conn, $sql)) {
@@ -38,6 +38,7 @@
             $order->categoryName = $row['categoryName'];
             $order->categoryId = $row['categoryId'];
             $order->bidCount = $row['bidCount'];
+            $order->freelancerId = $row['userId'];
             array_push($array_order, $order);
         }
 
@@ -48,7 +49,7 @@
 	} 
 	else {
         $error = new CustomError;
-        $error->description = "Get Unassigned Order Detail: ". mysqli_error($conn);
+        $error->description = "Get Order History Detail: ". mysqli_error($conn);
         $error->success = false;
         echo json_encode($error);
     }

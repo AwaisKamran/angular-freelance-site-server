@@ -46,6 +46,7 @@
     service.minimumHours,
     service.active,
     service.profileHits,
+    service.categoryId,
     user.id as userId,
     user.username,
     user.email,
@@ -69,6 +70,7 @@
             $service->id = $row['id'];
             $service->title = $row['title'];
             $service->description = $row['description'];
+            $service->categoryId = $row['categoryId'];
             $service->hourlyCost = $row['hourlyCost'];
             $service->minimumHours = $row['minimumHours'];
             $service->profileHits = $row['profileHits'];

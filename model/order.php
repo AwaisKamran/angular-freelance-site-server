@@ -14,5 +14,6 @@
 		public $catgoryId = null;
 		public $categoryName = null;
 		public $bidCount = null;
+		public $freelancerId = null;
 	}
 ?>

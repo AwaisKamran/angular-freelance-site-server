@@ -2,6 +2,7 @@
     include('../../cors.php');
     include('../../model/error.php');
     include('../../model/success.php');
+    error_reporting(0);	
 
     $path_parts = pathinfo($_FILES["fileToUpload"]["name"]);
     $extension = $path_parts['extension'];

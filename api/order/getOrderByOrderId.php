@@ -24,7 +24,8 @@
         service.minimumHours,
 
 
-        (select username from user where id = orders.orderCreatedBy) as userName
+        (select username from user where id = orders.orderCreatedBy) as userName,
+        (select userId from service where id = orders.serviceId) as freelancerId
         
         from orders inner join service
         on orders.serviceId = service.id
@@ -40,6 +41,7 @@
             $order->orderInstructions = $row['orderInstructions'];
             $order->status = $row['status'];
             $order->orderCreated = $row['orderCreated'];
+            $order->freelancerId = $row['freelancerId'];
 
             $service = new Service;
             $service->title = $row['title'];

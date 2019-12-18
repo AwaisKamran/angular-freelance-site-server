@@ -8,10 +8,20 @@
     error_reporting(0);	
     
     if(isset($_GET['userId']) && $_GET['orderId']){
-        $sql = 'select id, orderId, ratingComments, rating, dateTime, userId, (select username from user where id=(select orderCreatedBy from orders where id=rating.orderId)) as userName from rating where userId = '. $_GET['userId'] . '&&orderId='. $_GET['orderId'];
+        $sql = 'select id, orderId, ratingComments, rating, dateTime, userId, 
+        (
+            select username from user where id =
+            (select orderCreatedBy from orders where id = rating.orderId)
+        ) as userName 
+        from rating where userId = '. $_GET['userId'] . '&&orderId='. $_GET['orderId'];
     }
     else if(isset($_GET['userId']) && !isset($_GET['orderId'])){
-        $sql = 'select * from rating where userId = '. $_GET['userId'];
+        $sql = 'select id, orderId, ratingComments, rating, dateTime, userId, 
+        ( 
+            select username from user where id =
+            (select orderCreatedBy from orders where id = rating.orderId)
+        ) as userName
+        from rating where userId = '. $_GET['userId'];
     }
     $array_rating = array();
 

@@ -7,6 +7,7 @@
 		public $position = null;
 		public $telephone = null;
 		public $bankName = null;
+		public $bankCode = null;
 		public $bankAccountNumber = null;
 		public $travelRadius = null;
 		public $aboutMe = null;

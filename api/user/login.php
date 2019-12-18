@@ -29,6 +29,7 @@
             $user->active = $row['active'];
             $user->aboutMe = $row['aboutMe'];
             $user->bankName = $row['bankName'];
+            $user->bankCode = $row['bankCode'];
             $user->rating = $row['rating'];
             $user->bankAccountNumber = $row['bankAccountNumber'];
         }

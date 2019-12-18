@@ -3,7 +3,7 @@
     include('../../connection.php');
     include('../../model/error.php');
     include('../../model/success.php');
-    include('../../model/Order.php');
+    include('../../model/order.php');
     error_reporting(0);	
     
     $sql = 'select 

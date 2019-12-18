@@ -3,9 +3,9 @@
     include('../../connection.php');
     include('../../model/error.php');
     include('../../model/success.php');
-    include('../../model/Order.php');
-    include('../../model/Service.php');
-    include('../../model/User.php');
+    include('../../model/order.php');
+    include('../../model/service.php');
+    include('../../model/user.php');
     error_reporting(0);	
     
     $sql = 'select 
@@ -16,6 +16,8 @@
         orders.orderInstructions,
         orders.status,
         orders.orderCreated,
+        orders.adminRated,
+        orders.freelancerRated,
         orders.orderCreatedBy as userId,
 
         service.title,
@@ -42,6 +44,8 @@
             $order->status = $row['status'];
             $order->orderCreated = $row['orderCreated'];
             $order->freelancerId = $row['freelancerId'];
+            $order->freelancerRated = $row['freelancerRated'];
+            $order->adminRated = $row['adminRated'];
 
             $service = new Service;
             $service->title = $row['title'];

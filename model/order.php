@@ -15,5 +15,7 @@
 		public $categoryName = null;
 		public $bidCount = null;
 		public $freelancerId = null;
+		public $freelancerRated = false;
+		public $adminRated = false;
 	}
 ?>

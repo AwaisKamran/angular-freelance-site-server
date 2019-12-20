@@ -4,7 +4,7 @@
     include('../../model/error.php');
     include('../../model/success.php');
     include('../../model/Service.php');
-    include('../../model/User.php');
+    include('../../model/user.php');
     error_reporting(0);	
     
     $sql = 'select 

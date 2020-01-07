@@ -6,7 +6,7 @@
     include('../../model/comment.php');
     error_reporting(0);	
     
-    $sql = 'select * from comments where orderId='. $_GET['orderId'] .' order by dateTime desc';
+    $sql = 'select id, userId, orderid, commentText, dateTime, (select username from user where id = userId) as userName from comments where orderId='. $_GET['orderId'] .' order by dateTime desc';
 
     $array_comments = array();
 
@@ -15,6 +15,7 @@
             $comment = new Comment;
             $comment->id = $row['id'];
             $comment->userId = $row['userId'];
+            $comment->userName = $row['userName'];
             $comment->orderId = $row['orderId'];
             $comment->commentText = $row['commentText'];
 		    $comment->dateTime = $row['dateTime'];
